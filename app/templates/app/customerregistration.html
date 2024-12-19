@@ -1,0 +1,50 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Customer Registration{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+
+   <hr>
+
+   <form action="" method="post" novalidate class="shadow p-5">
+
+    <h3>Customer Registration</h3>
+    {% csrf_token %}
+        <div class="mb-3"><br>
+            {% if error_msg %}
+            <p class="alert alert-danger">{{error_msg}}</p>
+            {% endif %}
+
+            
+            <label for="inputEmail4" class="form-label">Name</label>
+            <input type="email" class="form-control" id="inputEmail4" name="name">
+        </div>
+        <div class="mb-3">
+         <label for="inputEmail4" class="form-label">Email</label>
+         <input type="email" class="form-control" id="inputEmail4" name="username">
+         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+         <label for="inputPassword1" class="form-label">Password</label>
+         <input type="password" class="form-control" id="inputPassword1" name="password">
+        </div>
+        <div class="mb-3">
+         <label for="inputPassword2" class="form-label">Confirm Password</label>
+         <input type="password" class="form-control" id="inputPassword2" name="password2">
+        </div>
+        <div class="text-end">
+         <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+
+        <!-- <div class="text-center text-primary fw-bold"><small>Existing User ? <a href="{% url 'login' %}"> -->
+   
+        <br>
+        <div class="text-center text-primary fw-bold"><small>Existing User ? <a href="{% url 'login' %}"
+        class="text-danger">Login Now</a> </small></div>
+   </form>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

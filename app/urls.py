@@ -1,0 +1,52 @@
+from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+from app import views
+urlpatterns = [
+    path('', views.home,name="home"),
+    path('product-detail/<int:pk>', views.product_detail, name='product-detail'),
+    path('Buy_Now/', views.Buy_Now, name='Buy_Now'),
+    path('add-to-cart/', views.cart, name='Cart'),
+    path('cart/',views.show_cart,name='show-cart'),
+    path('pluscart/',views.plus_cart),
+    path('minuscart/',views.minus_cart),
+    path('delete/<int:id>/',views.remove_cart,name="delete"),
+    path('profile/', views.profile, name='profile'),
+    path('address/', views.address, name='address'),
+    path('orders/', views.orders, name='orders'),
+    path('changepassword/', views.change_password, name='changepassword'),
+    path('login/', views.login_user, name='login'),
+    path('logout/',views.logout_user,name='logout'),
+    path('registration/', views.customerregistration, name='customerregistration'),
+    path('checkout/', views.checkout, name='checkout'),
+    path('mobile/', views.mobile_data, name='mobile'),
+    path('mobile/<slug:data>', views.mobile_data, name='mobiledata'),
+    path('paymentdone/',views.payment_done,name="paymentdone"),
+    path('reset_password/', views.password_reset_request, name='password_reset'),
+    path('reset_password_confirm/<uidb64>/<token>/', views.password_reset_confirm, name='password_reset_confirm'),
+    path('reset_password_complete/', views.password_reset_complete, name='password_reset_complete'),
+    path('password_reset_done/', views.password_reset_done, name='password_reset_done'),
+    path('checkoutProduct/<int:id>',views.checkoutProduct,name='checkoutProduct'),
+    path('paymentdoneProduct/<int:id>',views.paymentProduct_done,name="paymentProductdone"),
+    # path('buy_now1/',views.buy_now1,name='buy_now1'),
+    # path('buy_now2/',views.buy_now2,name='buy_now2'),
+    # path('buy_now3/',views.buy_now3,name='buy_now3'),
+    # path('buy_now4/',views.buy_now4,name='buy_now4'),
+    # path('buy_now5/',views.buy_now5,name='buy_now5'),
+    # path('buy_now6/',views.buy_now6,name='buy_now6'),
+    # path('buy_now7/',views.buy_now7,name='buy_now7'),
+    # path('buy_now8/',views.buy_now8,name='buy_now8'),
+    # path('buy_now9/',views.buy_now9,name='buy_now9'),
+    # path('buy_now10/',views.buy_now10,name='buy_now10'),
+    # path('buy_now11/',views.buy_now11,name='buy_now11'),
+    # path('buy_now12/',views.buy_now12,name='buy_now12'),
+    # path('buy_now13/',views.buy_now13,name='buy_now13'),
+    # path('buy_now14/',views.buy_now14,name='buy_now14'),
+    # path('buy_now15/',views.buy_now15,name='buy_now15'),
+    # path('buy_now16/',views.buy_now16,name='buy_now16'),
+    # path('buy_now16/',views.buy_now16,name='buy_now16'),
+    # path('buy_now17/',views.buy_now17,name='buy_now17'),
+    
+    # path('product/',views.product_details,name="product_details")
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
